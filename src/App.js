@@ -1,10 +1,8 @@
-import './styles/App.css';
+import Router from './router/Router';
 
 function App() {
-  return (
-    <>
-      Test
-    </>
+  return (  
+      <Router></Router>
   );
 }
 
