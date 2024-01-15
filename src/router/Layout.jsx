@@ -7,8 +7,12 @@ const Layout = () => {
             <Link to="/task">Task</Link>
             <Link to="/api">Api</Link>
       </nav>
-
-      <Outlet />
+      
+      <div className="text-center">
+        <div className="box text-center">
+          <Outlet />
+        </div>
+      </div>
     </>
   )
 };
