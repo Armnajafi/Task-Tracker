@@ -1,8 +1,6 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: #ededed;
@@ -22,7 +20,7 @@ nav{
   position: fixed;
   bottom: 0;
   width: 100%;
-  height: 100px;
+  height: 50px;
   background: #fff;
   display: flex;
   align-items: center;
@@ -39,11 +37,43 @@ nav a{
 }
 
 .box{
-  width: 80%;
-  height: 300px;
+  width: 100%;
+  height: auto;
+  max-height: 450px;
   border-radius: 25px;
   box-shadow: 1px 2px 1px solid;
   background: #fff;
-  padding: 50px;
-  margin-top: 100px;
+  padding: 20px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.btn{
+  padding: 10 15px;
+  border: none;
+  width:100px;
+  height: 35px;
+  font-size: 12px;
+  color: #fff;
+}
+
+.btn-primary{
+  background: #7e16ed;
+}
+
+select , input{
+  height: 40px;
+  padding: 0px 15px;
+  border-radius: 100px;
+  border: 1px solid #7e16ed;
+}
+
+
+
+.btn-success{
+  background: rgb(96, 160, 0);
+}
+
+.btn-danger{
+  background: rgb(255, 53, 53);
 }

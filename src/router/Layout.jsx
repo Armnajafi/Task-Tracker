@@ -9,7 +9,7 @@ const Layout = () => {
       </nav>
       
       <div className="text-center">
-        <div className="box text-center">
+        <div className="box">
           <Outlet />
         </div>
       </div>
