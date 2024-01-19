@@ -46,7 +46,7 @@ export default function Task(){
                 }
         }
 
-        // a function for reset Task base details 
+        // a method for reset Task base details 
         const resetInput = () => {
             setTaskTitle("")
             setTaskStatus(0)
@@ -105,7 +105,7 @@ export default function Task(){
             }
         }
 
-        // That function changing isEditing to 'true' for get ready to edit item
+        // That method changing isEditing to 'true' for get ready to edit item
         // and getting item details to put theme in input (current values)
         // it's work when click on the edit button in items list
         const handleEditItemBtn = (key) => {
@@ -137,18 +137,24 @@ export default function Task(){
                     item.date = taskDate
                     item.status = taskStatus
                 }
+
+                // return new edited item
                 return item
             })
+
+            // set editedItems and reset all inputs and editing mode
             setTasks(editedItems)
             resetInput()
             setIsEditing(false)
         }
 
+        // a handler for cancel editing a item and reset inputs
         const handleEditCancel = () => {
             setIsEditing(false)
             resetInput()
         }
 
+        // a method for set filter to items , Done , Undone , Doing 
         const withFilter = (status) => {
             if(status != 10){
                 let filterTasks = tasks.filter((item) => {
@@ -163,6 +169,10 @@ export default function Task(){
             }
         }
 
+        // a method for check status with number and change it to a tag for display
+        // 0 - Done
+        // 1 - Doing
+        // 2 - Undone
         const statusCheck = (status) => {
             let output = ""
             if(status == 0){
@@ -180,6 +190,7 @@ export default function Task(){
         return (
             <Fragment>
             <h1> Task Tracker </h1>
+             {/* {checking editing mode} */}
             {isEditing ? (
             <div>
                 <input type="text" placeholder="Enter your task title" id="title" value={taskTitle} onChange={updateInput}></input>
@@ -219,12 +230,14 @@ export default function Task(){
   
                 <div className="tasks">
                     {
+                        // display of all filtered items using "withFilter" method
                     withFilter(filter).data.map((item , index) => {
                         return (
                             <div className="task-item" key={item.id}>
-                                <h5>{item.title}</h5>
-                                <h5>{item.date}</h5>
-                                {statusCheck(item.status)}
+                                <h5>{item.title}</h5>{/* {Show title} */}
+                                <h5>{item.date}</h5> {/* {Show date} */}
+                                {/* { Show Task Status } */}
+                                {statusCheck(item.status) } 
                                 <div className="task-buttons">
                                     <button className="btn btn-primary" onClick={() => handleEditItemBtn(item.id)}>Edit</button>
                                     <button className="btn btn-danger" onClick={() => handleDeleteItem(item.id)}>Remove</button>
