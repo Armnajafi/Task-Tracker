@@ -1,4 +1,4 @@
-import { Component, Fragment, useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import sundate from "sundate"
 import "../styles/Task.css"
 
@@ -156,10 +156,12 @@ export default function Task(){
 
         // a method for set filter to items , Done , Undone , Doing 
         const withFilter = (status) => {
-            if(status != 10){
+            if(status !== 10){
                 let filterTasks = tasks.filter((item) => {
-                    if(item.status == status){
+                    if(item.status === status){
                         return item
+                    } else {
+                        return false;
                     }
                 })
                 
@@ -175,17 +177,15 @@ export default function Task(){
         // 2 - Undone
         const statusCheck = (status) => {
             let output = ""
-            if(status == 0){
+            if(status === 0){
                 output = <span className="task-status task-status-done">Done</span>
-            } else if(status == 1){
+            } else if(status === 1){
                 output = <span className="task-status task-status-doing">Doing</span>
-            } else if(status == 2){
+            } else if(status === 2){
                 output = <span className="task-status task-status-undone">Undone</span>
             }
             return output
         }
-
-
 
         return (
             <Fragment>
@@ -237,7 +237,7 @@ export default function Task(){
                                 <h5>{item.title}</h5>{/* {Show title} */}
                                 <h5>{item.date}</h5> {/* {Show date} */}
                                 {/* { Show Task Status } */}
-                                {statusCheck(item.status) } 
+                                {statusCheck(Number(item.status)) } 
                                 <div className="task-buttons">
                                     <button className="btn btn-primary" onClick={() => handleEditItemBtn(item.id)}>Edit</button>
                                     <button className="btn btn-danger" onClick={() => handleDeleteItem(item.id)}>Remove</button>
