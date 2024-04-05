@@ -158,7 +158,7 @@ export default function Task(){
         const withFilter = (status) => {
             if(status !== 10){
                 let filterTasks = tasks.filter((item) => {
-                    if(item.status === status){
+                    if(Number(item.status) === status){
                         return item
                     } else {
                         return false;
@@ -231,7 +231,7 @@ export default function Task(){
                 <div className="tasks">
                     {
                         // display of all filtered items using "withFilter" method
-                    withFilter(filter).data.map((item , index) => {
+                    withFilter(Number(filter)).data.map((item , index) => {
                         return (
                             <div className="task-item" key={item.id}>
                                 <h5>{item.title}</h5>{/* {Show title} */}
